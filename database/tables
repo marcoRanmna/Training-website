@@ -1,6 +1,6 @@
-CREATE DATABASE training_website;
+CREATE DATABASE TrainingWebsiteMYSQL;
 
-USE training_website;
+USE TrainingWebsiteMYSQL;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,

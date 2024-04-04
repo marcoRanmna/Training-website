@@ -1,22 +1,31 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mysqldb import MySQL
+from database import config
 
 from logic import calc_bmr 
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
-
-app.config['MYSQL_USER'] = 'root'
-
-app.config['MYSQL_PASSWORD'] = '12345'
-
-app.config['MYSQL_DB'] ='training_website'
+app.config['MYSQL_HOST'] = config.get('MYSQL_HOST')
+app.config['MYSQL_USER'] = config.get('MYSQL_USER')
+app.config['MYSQL_PASSWORD'] = config.get('MYSQL_PASSWORD')
+app.config['MYSQL_DB'] = config.get('MYSQL_DB')
 
 mysql = MySQL(app)
 
 @app.route('/')
 def index():
+    # Create a cursor
+    cur = mysql.connection.cursor()
+
+    # Example query
+    cur.execute("SELECT * FROM your_table_name")
+
+    # Fetch data
+    data = cur.fetchall()
+
+    # Close the cursor
+    cur.close()
     return render_template('index.html')
 
 @app.route('/calorie-calculator', methods=['GET', 'POST'])
