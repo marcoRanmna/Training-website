@@ -1,0 +1,29 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Website</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Training Website</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('calorie_calculator') }}">Calorie Calculator</a></li>
+            <li><a href="{{ url_for('training_programs') }}">Training Programs</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
+        </ul>
+    </nav>
+    <main>
+        <p>Welcome to our training website! Here you can find various tools and programs to help you achieve your fitness goals.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Training Website</p>
+    </footer>
+</body>
+</html>
